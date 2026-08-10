@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding-bottom: 140px;
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
+  background-color: #121212;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;            
+  padding: 15px 30px;
+  background-color: #6397F8;  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
