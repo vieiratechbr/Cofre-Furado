@@ -15,11 +15,50 @@ body.fade-out {
   opacity: 0;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;            
-  padding: 15px 30px;
-  background-color: #6397F8;  
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+.header-principal {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 20px 40px; 
+    background-color: #121212;
+}
+
+.brand-header {
+    display: flex;
+    align-items: center;      
+    gap: 12px;
+}
+
+.logo-img {
+    width: 52px; 
+    height: auto;
+    border-radius: 8px;
+}
+
+.brand-header h2 {
+    color: #E0E0E0;
+    font-size: 32px;
+    font-family: 'Jost', sans-serif;
+    margin: 0;
+}
+
+.menu {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-menu {
+    color: #ffffff;           
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;     
+    font-family: 'Jost', sans-serif;   
+    padding: 8px 16px;   
+    background-color: #08d88594;   
+    border-radius: 8px;   
+    transition: background-color 0.2s ease;
+}
+
+.btn-menu:hover {
+    background-color: #08d884;
 }
