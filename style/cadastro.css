@@ -76,7 +76,7 @@ body.fade-out {
 .caixa {
     background-color: #1E1E1E; 
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
     padding: 40px; 
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
@@ -90,7 +90,93 @@ body.fade-out {
     margin-bottom: 30px;
     color: #fdfdfd; 
 }
+.caixa form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
+.caixa label {
+    font-size: 16px;
+    color: #E0E0E0;
+    margin-bottom: -5px; 
+    width: 100%; 
+    text-align: left;
+}
+
+.caixa input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.caixa input:focus {
+    outline: none;
+    border-color: #08d884;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 10px rgba(8, 216, 132, 0.3);
+}
+
+.caixa button {
+    margin-top: 10px;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #121212; 
+    background-color: #08d884;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.caixa button:hover {
+    background-color: #0bd182;
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 15px rgba(8, 216, 132, 0.4);
+}
+
+.login-link {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 15px;
+    color: #A0A0A0; 
+}
+
+.login-link a {
+    color: #08d884;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.login-link a:hover {
+    color: #0bd182;
+    text-decoration: underline; 
+}
+
+.erro-msg {
+    color: #ff4d4d; 
+    font-size: 14px;
+    text-align: left;
+    width: 100%;
+    margin-top: -10px; 
+    margin-bottom: 5px;
+    display: none; 
+}
+
+.caixa input.erro-input {
+    border-color: #ff4d4d;
+    background: rgba(255, 77, 77, 0.1);
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.3);
+}
 
 /* --- ANIMAÇÕES (KEYFRAMES) --- */
 

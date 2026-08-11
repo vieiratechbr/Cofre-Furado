@@ -23,8 +23,33 @@
 
     <main class="cadastro-container">
     <div class="caixa">
-        <h2>Cadastro</h2>
+        <h2>Cadastre-se</h2>
+        <form action="processar_cadastro.php" method="POST" id="form-cadastro" novalidate>
+    
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            <span class="erro-msg" id="erro-nome"></span>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <span class="erro-msg" id="erro-email"></span>
+    
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+            <span class="erro-msg" id="erro-senha"></span>
+    
+            <label for="repita-senha">Repita a Senha:</label>
+            <input type="password" id="repita-senha" name="repita_senha" required>
+            <span class="erro-msg" id="erro-repita-senha"></span>
+    
+            <button type="submit">Cadastrar</button>
+
+            <p class="login-link">
+                Já tem conta? <a href="login.html">Faça login</a>
+            </p>
+        </form>
     </div>
-</main>
+    </main>
+    <script src="../js/script.js"></script>
 </body> 
 </html>
