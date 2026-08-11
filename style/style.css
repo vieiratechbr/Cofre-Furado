@@ -70,6 +70,7 @@ body.fade-out {
     left: -50px; 
     z-index: -1; 
     pointer-events: none;
+    animation: deslizarDaEsquerda 3.5s ease-out forwards;
 }
 
 .logo-img-cartao {
@@ -90,6 +91,9 @@ body.fade-out {
 .hero-conteudo {
     max-width: 700px; 
     text-align: center; 
+    animation: zoomFadeIn 3.5s ease-out forwards;
+    animation-delay: 0.3s; 
+    opacity: 0;
 }
 
 .hero-conteudo h1 {
@@ -114,4 +118,28 @@ body.fade-out {
     display: inline-block;
     padding: 12px 24px;
     font-size: 22px;
+}
+
+/* --- ANIMAÇÕES (KEYFRAMES) --- */
+
+@keyframes deslizarDaEsquerda {
+    from {
+        transform: translateX(-100%); 
+        opacity: 0; 
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1; 
+    }
+}
+
+@keyframes zoomFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1; 
+        transform: scale(1); 
+    }
 }
