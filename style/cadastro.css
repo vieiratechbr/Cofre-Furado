@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
+  background-color: #121212;
+  overflow: hidden;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
+.header-principal {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 20px 40px; 
+    background-color: #121212;
+}
+
+.brand-header {
+    display: flex;
+    align-items: center;      
+    gap: 12px;
+}
+
+.logo-img {
+    width: 52px; 
+    height: auto;
+    border-radius: 8px;
+}
+
+.brand-header h2 {
+    color: #E0E0E0;
+    font-size: 32px;
+    font-family: 'Jost', sans-serif;
+    margin: 0;
+}
+
+.menu {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-menu {
+    color: #ffffff;           
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;     
+    font-family: 'Jost', sans-serif;   
+    padding: 8px 16px;   
+    background-color: none;   
+    border: 2px solid #08d884;
+    border-radius: 8px;   
+    transition: background-color 0.2s ease;
+}
+
+.btn-menu:hover {
+    background-color: #08d884;
+}
+
+.cadastro-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px); 
+    padding: 20px;
+    animation: zoomFadeIn 3.5s ease-out forwards;
+}
+
+.caixa {
+    background-color: #1E1E1E; 
+    width: 100%;
+    max-width: 400px;
+    padding: 40px; 
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    color: #ffffff;
+    font-family: 'Jost', sans-serif;
+    text-align: center; 
+}
+
+.caixa h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #fdfdfd; 
+}
+
+
+/* --- ANIMAÇÕES (KEYFRAMES) --- */
+
+@keyframes zoomFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1; 
+        transform: scale(1); 
+    }
+}
