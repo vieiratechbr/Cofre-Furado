@@ -190,3 +190,26 @@ body.fade-out {
         transform: scale(1); 
     }
 }
+
+/* --- RESPONSIVIDADE PARA CELULARES --- */
+@media (max-width: 768px) {
+    .header-principal {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    
+    .login-container {
+        height: auto; 
+        min-height: calc(100vh - 120px);
+        padding: 40px 15px;
+    }
+
+    .caixa {
+        padding: 30px 20px;
+    }
+
+    .caixa h2 {
+        font-size: 26px;
+    }
+}

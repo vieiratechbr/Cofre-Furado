@@ -143,3 +143,36 @@ body.fade-out {
         transform: scale(1); 
     }
 }
+
+/* --- RESPONSIVIDADE PARA CELULARES --- */
+@media (max-width: 768px) {
+    .header-principal {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    
+    .hero-container {
+        justify-content: center; 
+        padding-right: 0; 
+        padding: 0 20px;
+    }
+
+    .hero-conteudo h1 {
+        font-size: 32px; 
+    }
+
+    .hero-conteudo p {
+        font-size: 16px;
+    }
+
+    .logo-img-cartao {
+        width: 500px; 
+    }
+    
+    .cartao {
+        left: -150px;
+        bottom: 0;
+        opacity: 0.4; 
+    }
+}
