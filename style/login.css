@@ -1,36 +1,36 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  opacity: 1;
-  transition: opacity 0.4s ease-in-out;
-  background-color: #121212;
-  overflow: hidden;
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+    background-color: #121212;
+    overflow: hidden;
 }
 
 body.fade-out {
-  opacity: 0;
+    opacity: 0;
 }
 
 .header-principal {
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 20px 40px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
     background-color: #121212;
 }
 
 .brand-header {
     display: flex;
-    align-items: center;      
+    align-items: center;
     gap: 12px;
 }
 
 .logo-img {
-    width: 52px; 
+    width: 52px;
     height: auto;
     border-radius: 8px;
 }
@@ -48,15 +48,15 @@ body.fade-out {
 }
 
 .btn-menu {
-    color: #ffffff;           
+    color: #ffffff;
     font-size: 20px;
     font-weight: 600;
-    text-decoration: none;     
-    font-family: 'Jost', sans-serif;   
-    padding: 8px 16px;   
-    background-color: none;   
+    text-decoration: none;
+    font-family: 'Jost', sans-serif;
+    padding: 8px 16px;
+    background-color: transparent;
     border: 2px solid #08d884;
-    border-radius: 8px;   
+    border-radius: 8px;
     transition: background-color 0.2s ease;
 }
 
@@ -68,28 +68,29 @@ body.fade-out {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 100px); 
+    height: calc(100vh - 100px);
     padding: 20px;
-    animation: zoomFadeIn 3.5s ease-out forwards;
+    animation: zoomFadeIn 2s ease-out forwards;
 }
 
 .caixa {
-    background-color: #1E1E1E; 
+    background-color: #1E1E1E;
     width: 100%;
     max-width: 600px;
-    padding: 40px; 
+    padding: 40px;
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     color: #ffffff;
     font-family: 'Jost', sans-serif;
-    text-align: center; 
+    text-align: center;
 }
 
 .caixa h2 {
     font-size: 32px;
     margin-bottom: 30px;
-    color: #fdfdfd; 
+    color: #fdfdfd;
 }
+
 .caixa form {
     display: flex;
     flex-direction: column;
@@ -99,8 +100,8 @@ body.fade-out {
 .caixa label {
     font-size: 16px;
     color: #E0E0E0;
-    margin-bottom: -5px; 
-    width: 100%; 
+    margin-bottom: -5px;
+    width: 100%;
     text-align: left;
 }
 
@@ -124,12 +125,9 @@ body.fade-out {
 }
 
 .caixa button {
-    margin-top: 10px;
     padding: 14px;
     font-size: 18px;
     font-weight: 600;
-    color: #121212; 
-    background-color: #08d884;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -137,9 +135,14 @@ body.fade-out {
     transition: all 0.3s ease;
 }
 
-.caixa button:hover {
+.btn-primario {
+    color: #121212;
+    background-color: #08d884;
+}
+
+.btn-primario:hover {
     background-color: #0bd182;
-    transform: translateY(-2px); 
+    transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(8, 216, 132, 0.4);
 }
 
@@ -147,7 +150,7 @@ body.fade-out {
     margin-top: 10px;
     text-align: center;
     font-size: 15px;
-    color: #A0A0A0; 
+    color: #A0A0A0;
 }
 
 .login-link a {
@@ -159,17 +162,17 @@ body.fade-out {
 
 .login-link a:hover {
     color: #0bd182;
-    text-decoration: underline; 
+    text-decoration: underline;
 }
 
 .erro-msg {
-    color: #ff4d4d; 
+    color: #ff4d4d;
     font-size: 14px;
     text-align: left;
     width: 100%;
-    margin-top: -10px; 
+    margin-top: -10px;
     margin-bottom: 5px;
-    display: none; 
+    display: none;
 }
 
 .caixa input.erro-input {
@@ -178,7 +181,41 @@ body.fade-out {
     box-shadow: 0 0 10px rgba(255, 77, 77, 0.3);
 }
 
-/* --- ANIMAÇÕES (KEYFRAMES) --- */
+#area-tradicional, #area-alternativas {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#recaptcha-container {
+    margin-top: 5px;
+}
+
+.separador {
+    text-align: center;
+    margin: 5px 0;
+    color: #A0A0A0;
+    font-family: 'Jost', sans-serif;
+}
+
+#btn-google {
+    background-color: #ffffff;
+    color: #121212;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#btn-google:hover {
+    background-color: #e0e0e0;
+}
+
+#btn-voltar-email:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: #A0A0A0;
+    color: #ffffff;
+}
 
 @keyframes zoomFadeIn {
     from {
@@ -186,12 +223,11 @@ body.fade-out {
         transform: scale(0.8);
     }
     to {
-        opacity: 1; 
-        transform: scale(1); 
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
-/* --- RESPONSIVIDADE PARA CELULARES --- */
 @media (max-width: 768px) {
     .header-principal {
         flex-direction: column;
@@ -200,7 +236,7 @@ body.fade-out {
     }
     
     .login-container {
-        height: auto; 
+        height: auto;
         min-height: calc(100vh - 120px);
         padding: 40px 15px;
     }
