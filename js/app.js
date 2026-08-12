@@ -29,12 +29,16 @@ if (formCadastro) {
         
         if (!validarFormCadastro()) return;
         
+        const nome = document.getElementById('nome-cadastro').value;
         const email = document.getElementById('email-cadastro').value;
         const senha = document.getElementById('senha-cadastro').value;
 
+        localStorage.setItem("cofre_furado_nome_usuario", nome);
+
         createUserWithEmailAndPassword(auth, email, senha)
             .then((credenciais) => {
-                alert("Sucesso! Usuário cadastrado.");
+                alert("Cadastro realizado com sucesso! Faça login para continuar.");
+                window.location.href = "login.html"; 
             })
             .catch((erro) => {
                 alert("Erro no cadastro: " + erro.message);
@@ -54,7 +58,7 @@ if (formLogin) {
         
         signInWithEmailAndPassword(auth, email, senha)
             .then((credenciais) => {
-                alert("Bem-vindo! Login efetuado com sucesso.");
+                window.location.href = "dashboard.html"; 
             })
             .catch((erro) => {
                 alert("Erro no login. Verifique e-mail e senha. " + erro.message);
@@ -68,7 +72,9 @@ if (btnGoogle) {
     btnGoogle.addEventListener('click', () => {
         signInWithPopup(auth, providerGoogle)
             .then((resultado) => {
-                alert("Sucesso! Bem-vindo, " + resultado.user.displayName);
+                
+                localStorage.setItem("cofre_furado_nome_usuario", resultado.user.displayName);
+                window.location.href = "dashboard.html"; 
             })
             .catch((erro) => {
                 alert("Erro ao logar com Google: " + erro.message);

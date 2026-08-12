@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha seu Plano - Cofre Furado</title>
+    <link rel="icon" type="image/png" href="../img/logo.png">
+    <link rel="stylesheet" href="../style/planos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header-principal">
+        <div class="brand-header">
+            <img src="../img/logo.png" alt="Logo Cofre Furado" class="logo-img">
+            <h2>Cofre Furado</h2>
+        </div>
+    </header>
+
+    <main class="planos-container">
+        <div class="planos-header">
+            <h1>Escolha o seu Cofre</h1>
+            <p>Selecione o plano que melhor se adapta aos seus objetivos financeiros.</p>
+        </div>
+
+        <div class="planos-grid">
+           
+            <div class="plano-card">
+                <h3>Cofre Furado</h3>
+                <div class="plano-preco">
+                    <span class="moeda">R$</span>0<span class="periodo">/mês</span>
+                </div>
+                <p class="plano-desc">Perfeito para começar a organizar a casa.</p>
+                <ul class="plano-beneficios">
+                    <li>✔️ Transações Ilimitadas</li>
+                    <li>✔️ Categorias Padrão</li>
+                    <li>✔️ 1 Meta Financeira</li>
+                    <li>✔️ Relatórios Básicos</li>
+                </ul>
+                <button class="btn-plano btn-outline" data-plano="Furado">Começar Grátis</button>
+            </div>
+
+            <div class="plano-card destaque">
+                <div class="badge-recomendado">Mais Escolhido</div>
+                <h3>Cofre de Plástico</h3>
+                <div class="plano-preco">
+                    <span class="moeda">R$</span>9,90<span class="periodo">/mês</span>
+                </div>
+                <p class="plano-desc">Para quem quer controle e personalização.</p>
+                <ul class="plano-beneficios">
+                    <li>✔️ <strong>Tudo do plano Furado</strong></li>
+                    <li>✔️ Categorias Personalizadas</li>
+                    <li>✔️ Múltiplas Metas</li>
+                    <li>✔️ Histórico Avançado</li>
+                </ul>
+                <button class="btn-plano btn-primario" data-plano="Plástico">Assinar Plástico</button>
+            </div>
+
+            <div class="plano-card ouro">
+                <h3>Cofre de Ouro</h3>
+                <div class="plano-preco">
+                    <span class="moeda">R$</span>19,90<span class="periodo">/mês</span>
+                </div>
+                <p class="plano-desc">Controle absoluto e compartilhado.</p>
+                <ul class="plano-beneficios">
+                    <li>✔️ <strong>Tudo do plano Plástico</strong></li>
+                    <li>✔️ Cofre Compartilhado</li>
+                    <li>✔️ Controle de Cartão de Crédito</li>
+                    <li>✔️ Anexar Notas e Recibos</li>
+                </ul>
+                <button class="btn-plano btn-ouro" data-plano="Ouro">Assinar Ouro</button>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="../js/planos.js"></script>
+</body>
+</html>

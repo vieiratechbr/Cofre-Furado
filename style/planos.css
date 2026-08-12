@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Jost', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-principal {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: transparent;
+}
+
+.brand-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    width: 40px;
+}
+
+.brand-header h2 {
+    font-size: 24px;
+    color: #E0E0E0;
+}
+
+.planos-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.planos-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.planos-header h1 {
+    font-size: 36px;
+    color: #fdfdfd;
+    margin-bottom: 10px;
+}
+
+.planos-header p {
+    color: #A0A0A0;
+    font-size: 18px;
+}
+
+.planos-grid {
+    display: flex;
+    gap: 30px;
+    max-width: 1100px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.plano-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 40px 30px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plano-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.plano-card.destaque {
+    border-color: #08d884;
+    box-shadow: 0 0 20px rgba(8, 216, 132, 0.2);
+    transform: scale(1.05);
+}
+
+.plano-card.destaque:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+.plano-card.ouro {
+    border-color: #ffcc00;
+}
+
+.badge-recomendado {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #08d884;
+    color: #121212;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.plano-card h3 {
+    font-size: 22px;
+    color: #E0E0E0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.plano-preco {
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.plano-preco .moeda {
+    font-size: 20px;
+    vertical-align: top;
+    margin-right: 5px;
+    color: #A0A0A0;
+}
+
+.plano-preco .periodo {
+    font-size: 16px;
+    color: #A0A0A0;
+    font-weight: 400;
+}
+
+.plano-desc {
+    text-align: center;
+    color: #A0A0A0;
+    font-size: 14px;
+    margin-bottom: 30px;
+    height: 40px;
+}
+
+.plano-beneficios {
+    list-style: none;
+    margin-bottom: 40px;
+    flex: 1;
+}
+
+.plano-beneficios li {
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: #E0E0E0;
+}
+
+.btn-plano {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.btn-outline:hover {
+    background-color: #ffffff;
+    color: #121212;
+}
+
+.btn-primario {
+    background-color: #08d884;
+    color: #121212;
+    border: none;
+}
+
+.btn-primario:hover {
+    background-color: #0bd182;
+    box-shadow: 0 4px 15px rgba(8, 216, 132, 0.4);
+}
+
+.btn-ouro {
+    background-color: transparent;
+    color: #ffcc00;
+    border: 1px solid #ffcc00;
+}
+
+.btn-ouro:hover {
+    background-color: #ffcc00;
+    color: #121212;
+    box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+    .planos-grid {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .plano-card.destaque {
+        transform: scale(1);
+    }
+    
+    .plano-card.destaque:hover {
+        transform: translateY(-10px);
+    }
+}

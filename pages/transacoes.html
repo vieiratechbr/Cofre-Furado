@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transações - Cofre Furado</title>
+    <link rel="icon" type="image/png" href="../img/logo.png">
+    <link rel="stylesheet" href="../style/dashboard.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="brand">
+            <img src="../img/logo.png" alt="Logo Cofre Furado">
+            <h2>Cofre Furado</h2>
+        </div>
+        <nav class="nav-links">
+            <a href="dashboard.html">Visão Geral</a>
+            <a href="transacoes.html" class="ativo">Transações</a>
+            <a href="metas.html">Metas</a>
+            <a href="configuracoes.html">Configurações</a>
+        </nav>
+        <button id="btn-sair" class="btn-sair">Sair da Conta</button>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div class="boas-vindas">
+                <h1>Histórico Completo</h1>
+                <p>Todas as suas movimentações registradas.</p>
+            </div>
+        </header>
+
+        <section class="tabela-transacoes">
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Descrição</th>
+                            <th>Categoria</th>
+                            <th>Data</th>
+                            <th>Valor</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-transacoes">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="../js/dashboard.js"></script>
+</body>
+</html>
