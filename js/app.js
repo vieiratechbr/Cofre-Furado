@@ -41,25 +41,18 @@ if (formCadastro) {
             .then(async (credenciais) => {
                 const usuario = credenciais.user;
                 
-                try {
-                
-                    await setDoc(doc(db, "usuarios", usuario.uid), {
-                        nome: nome,
-                        email: email,
-                        cpf: cpf,
-                        plano: "Pendente",
-                        data_cadastro: new Date().toISOString()
-                    });
+                await setDoc(doc(db, "usuarios", usuario.uid), {
+                    nome: nome,
+                    email: email,
+                    cpf: cpf,
+                    plano: "Pendente", 
+                    data_cadastro: new Date().toISOString()
+                });
 
-                    window.location.href = "planos.html"; 
-
-                } catch (erroFirestore) {
-                    console.error("Ocorreu um erro no banco de dados:", erroFirestore);
-                    alert("Atenção: A conta foi criada, mas seu navegador bloqueou o banco de dados (provavelmente um Antivírus ou AdBlock). Desative-o para continuar.");
-                }
+                window.location.href = "planos.html"; 
             })
-            .catch((erroAuth) => {
-                alert("Erro no cadastro: " + erroAuth.message);
+            .catch((erro) => {
+                alert("Erro no cadastro: " + erro.message);
             });
     });
 }
