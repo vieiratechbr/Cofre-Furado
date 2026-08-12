@@ -62,6 +62,9 @@ body.fade-out {
 
 .btn-menu:hover {
     background-color: #08d884;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(8, 216, 132, 0.4);
+    transition: all 0.3s ease;
 }
 
 .cadastro-container {
@@ -209,6 +212,8 @@ body.fade-out {
 
 #btn-google:hover {
     background-color: #e0e0e0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(8, 216, 132, 0.4);
 }
 
 

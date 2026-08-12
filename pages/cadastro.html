@@ -27,19 +27,23 @@
             <form id="form-cadastro" novalidate>
                 <div id="area-tradicional">
                     <label for="nome-cadastro">Nome:</label>
-                    <input type="text" id="nome-cadastro" name="nome" required>
+                    <input type="text" id="nome-cadastro" name="nome" placeholder="Insira seu nome aqui" required>
                     <span class="erro-msg" id="erro-nome-cadastro"></span>
+
+                    <label for="cpf-cadastro">CPF:</label>
+                    <input type="text" id="cpf-cadastro" name="cpf" placeholder="000.000.000-00" maxlength="14" required>
+                    <span class="erro-msg" id="erro-cpf-cadastro"></span>
                     
                     <label for="email-cadastro">Email:</label>
-                    <input type="email" id="email-cadastro" name="email" required>
+                    <input type="email" id="email-cadastro" name="email" placeholder="Insira seu email aqui" required>
                     <span class="erro-msg" id="erro-email-cadastro"></span>
                     
                     <label for="senha-cadastro">Senha:</label>
-                    <input type="password" id="senha-cadastro" name="senha" required>
+                    <input type="password" id="senha-cadastro" name="senha" placeholder="Insira sua senha aqui" required>
                     <span class="erro-msg" id="erro-senha-cadastro"></span>
                     
                     <label for="repita-senha-cadastro">Repita a Senha:</label>
-                    <input type="password" id="repita-senha-cadastro" name="repita_senha" required>
+                    <input type="password" id="repita-senha-cadastro" name="repita_senha" placeholder="Digite novamente sua senha" required>
                     <span class="erro-msg" id="erro-repita-senha-cadastro"></span>
                     
                     <button type="submit" class="btn-primario">Cadastrar</button>

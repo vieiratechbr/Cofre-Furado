@@ -8,19 +8,29 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
 import { firebaseConfig } from "./firebase-keys.js";
-import { validarFormCadastro, validarFormLogin } from "./script.js";
+
+import { validarFormCadastro, validarFormLogin, aplicarMascaraCPF } from "./script.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+
+const inputCpf = document.getElementById('cpf-cadastro');
+if (inputCpf) {
+    inputCpf.addEventListener('input', function() {
+        aplicarMascaraCPF(this);
+    });
+}
 
 const formCadastro = document.getElementById('form-cadastro');
 if (formCadastro) {
     formCadastro.addEventListener('submit', (evento) => {
         evento.preventDefault();
+        
         if (!validarFormCadastro()) return;
-
+        
         const email = document.getElementById('email-cadastro').value;
         const senha = document.getElementById('senha-cadastro').value;
+        const cpf = document.getElementById('cpf-cadastro').value;
 
         createUserWithEmailAndPassword(auth, email, senha)
             .then((credenciais) => {
@@ -37,10 +47,8 @@ if (formLogin) {
     formLogin.addEventListener('submit', (evento) => {
         evento.preventDefault();
         if (!validarFormLogin()) return;
-
         const email = document.getElementById('email-login').value;
         const senha = document.getElementById('senha-login').value;
-
         signInWithEmailAndPassword(auth, email, senha)
             .then((credenciais) => {
                 alert("Bem-vindo! Login efetuado com sucesso.");

@@ -33,6 +33,7 @@ body.fade-out {
     width: 52px; 
     height: auto;
     border-radius: 8px;
+    pointer-events: none;
 }
 
 .brand-header h2 {
@@ -40,6 +41,7 @@ body.fade-out {
     font-size: 32px;
     font-family: 'Jost', sans-serif;
     margin: 0;
+    pointer-events: none;
 }
 
 .menu {
@@ -62,6 +64,9 @@ body.fade-out {
 
 .btn-menu:hover {
     background-color: #08d884;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(8, 216, 132, 0.4);
+    transition: all 0.3s ease;
 }
 
 .cartao {
