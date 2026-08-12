@@ -39,11 +39,21 @@
                     <span class="erro-msg" id="erro-email-cadastro"></span>
                     
                     <label for="senha-cadastro">Senha:</label>
-                    <input type="password" id="senha-cadastro" name="senha" placeholder="Insira sua senha aqui" required>
+                        <div class="input-senha-container">
+                            <input type="password" id="senha-cadastro" name="senha" placeholder="Insira sua senha aqui" required>
+                                <button type="button" class="btn-toggle-senha" data-target="senha-cadastro">
+                                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                </button>
+                        </div>
                     <span class="erro-msg" id="erro-senha-cadastro"></span>
-                    
+
                     <label for="repita-senha-cadastro">Repita a Senha:</label>
-                    <input type="password" id="repita-senha-cadastro" name="repita_senha" placeholder="Digite novamente sua senha" required>
+                        <div class="input-senha-container">
+                            <input type="password" id="repita-senha-cadastro" name="repita_senha" placeholder="Digite novamente sua senha" required>
+                                <button type="button" class="btn-toggle-senha" data-target="repita-senha-cadastro">
+                                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                </button>
+                        </div>
                     <span class="erro-msg" id="erro-repita-senha-cadastro"></span>
                     
                     <button type="submit" class="btn-primario">Cadastrar</button>

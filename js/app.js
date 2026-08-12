@@ -8,11 +8,12 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
 import { firebaseConfig } from "./firebase-keys.js";
-
-import { validarFormCadastro, validarFormLogin, aplicarMascaraCPF } from "./script.js";
+import { validarFormCadastro, validarFormLogin, aplicarMascaraCPF, configurarToggleSenha } from "./script.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+
+configurarToggleSenha();
 
 const inputCpf = document.getElementById('cpf-cadastro');
 if (inputCpf) {

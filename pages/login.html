@@ -31,7 +31,12 @@
                     <span class="erro-msg" id="erro-email-login"></span>
                     
                     <label for="senha-login">Senha:</label>
-                    <input type="password" id="senha-login" name="senha" placeholder="Insira sua senha aqui" required>
+                        <div class="input-senha-container">
+                            <input type="password" id="senha-login" name="senha" placeholder="Insira sua senha aqui" required>
+                                <button type="button" class="btn-toggle-senha" data-target="senha-login">
+                                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                </button>
+                        </div>
                     <span class="erro-msg" id="erro-senha-login"></span>
                     
                     <button type="submit" class="btn-primario">Entrar</button>

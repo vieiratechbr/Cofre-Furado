@@ -222,6 +222,38 @@ body.fade-out {
     color: #ffffff;
 }
 
+.input-senha-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.input-senha-container input {
+    padding-right: 45px; 
+}
+
+.btn-toggle-senha {
+    position: absolute;
+    right: 15px;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    color: #A0A0A0 !important;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none !important;
+}
+
+.btn-toggle-senha:hover {
+    color: #08d884 !important;
+    transform: none !important;
+    background: transparent !important;
+}
+
 @keyframes zoomFadeIn {
     from {
         opacity: 0;
