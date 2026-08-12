@@ -13,7 +13,6 @@ import { validarFormCadastro, validarFormLogin } from "./script.js";
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Lógica de Cadastro
 const formCadastro = document.getElementById('form-cadastro');
 if (formCadastro) {
     formCadastro.addEventListener('submit', (evento) => {
@@ -33,7 +32,6 @@ if (formCadastro) {
     });
 }
 
-// Lógica de Login
 const formLogin = document.getElementById('form-login');
 if (formLogin) {
     formLogin.addEventListener('submit', (evento) => {
@@ -53,7 +51,6 @@ if (formLogin) {
     });
 }
 
-// Lógica do Botão Google
 const btnGoogle = document.getElementById('btn-google');
 if (btnGoogle) {
     const providerGoogle = new GoogleAuthProvider();
