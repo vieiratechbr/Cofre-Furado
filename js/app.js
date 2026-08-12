@@ -31,7 +31,6 @@ if (formCadastro) {
         
         const email = document.getElementById('email-cadastro').value;
         const senha = document.getElementById('senha-cadastro').value;
-        const cpf = document.getElementById('cpf-cadastro').value;
 
         createUserWithEmailAndPassword(auth, email, senha)
             .then((credenciais) => {
@@ -47,9 +46,12 @@ const formLogin = document.getElementById('form-login');
 if (formLogin) {
     formLogin.addEventListener('submit', (evento) => {
         evento.preventDefault();
+        
         if (!validarFormLogin()) return;
+        
         const email = document.getElementById('email-login').value;
         const senha = document.getElementById('senha-login').value;
+        
         signInWithEmailAndPassword(auth, email, senha)
             .then((credenciais) => {
                 alert("Bem-vindo! Login efetuado com sucesso.");

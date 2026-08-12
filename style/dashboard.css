@@ -1,0 +1,345 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Jost', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 260px;
+    background-color: #1E1E1E;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+
+.brand img {
+    width: 40px;
+}
+
+.brand h2 {
+    font-size: 22px;
+    color: #E0E0E0;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #A0A0A0;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.ativo {
+    background-color: rgba(8, 216, 132, 0.1);
+    color: #08d884;
+}
+
+.btn-sair {
+    margin-top: auto;
+    padding: 12px;
+    background: transparent;
+    color: #ff4d4d;
+    border: 1px solid #ff4d4d;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Jost', sans-serif;
+    transition: 0.3s;
+}
+
+.btn-sair:hover {
+    background: #ff4d4d;
+    color: #ffffff;
+}
+
+.main-content {
+    flex: 1;
+    padding: 40px 50px;
+    overflow-y: auto;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.topbar h1 {
+    font-size: 32px;
+    color: #fdfdfd;
+}
+
+.topbar p {
+    color: #A0A0A0;
+    margin-top: 5px;
+}
+
+.btn-primario {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #121212;
+    background-color: #08d884;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.btn-primario:hover {
+    background-color: #0bd182;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(8, 216, 132, 0.4);
+}
+
+.cards-resumo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    color: #A0A0A0;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.card .valor {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.positivo { color: #08d884; }
+.negativo { color: #ff4d4d; }
+
+.tabela-transacoes {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 25px;
+}
+
+.tabela-transacoes h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #E0E0E0;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th, td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+th {
+    color: #A0A0A0;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+td {
+    font-size: 16px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.oculto {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-caixa {
+    position: relative;
+    width: 90%;
+    max-width: 450px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.oculto .modal-caixa {
+    transform: scale(0.8);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    font-size: 24px;
+    color: #fdfdfd;
+}
+
+.btn-fechar {
+    background: transparent;
+    border: none;
+    color: #A0A0A0;
+    font-size: 28px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.btn-fechar:hover {
+    color: #ff4d4d;
+}
+
+.modal-caixa form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal-caixa label {
+    font-size: 14px;
+    color: #E0E0E0;
+    margin-bottom: -5px;
+}
+
+.modal-caixa input, .modal-caixa select {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.modal-caixa input:focus, .modal-caixa select:focus {
+    outline: none;
+    border-color: #08d884;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.modal-caixa select option {
+    background-color: #1E1E1E;
+    color: #fff;
+}
+
+.btn-salvar {
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .brand {
+        margin-bottom: 0;
+    }
+    
+    .nav-links {
+        display: none; 
+    }
+    
+    .btn-sair {
+        margin-top: 0;
+        padding: 8px 15px;
+    }
+    
+    .main-content {
+        padding: 20px;
+    }
+    
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .topbar h1 {
+        font-size: 26px;
+    }
+    
+    .card .valor {
+        font-size: 26px;
+    }
+}
