@@ -7,11 +7,14 @@ import {
     signInWithPopup
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
 import { firebaseConfig } from "./firebase-keys.js";
 import { validarFormCadastro, validarFormLogin, aplicarMascaraCPF, configurarToggleSenha } from "./script.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app); 
 
 configurarToggleSenha();
 
@@ -30,15 +33,23 @@ if (formCadastro) {
         if (!validarFormCadastro()) return;
         
         const nome = document.getElementById('nome-cadastro').value;
+        const cpf = document.getElementById('cpf-cadastro').value;
         const email = document.getElementById('email-cadastro').value;
         const senha = document.getElementById('senha-cadastro').value;
 
-        localStorage.setItem("cofre_furado_nome_usuario", nome);
-
         createUserWithEmailAndPassword(auth, email, senha)
-            .then((credenciais) => {
-                alert("Cadastro realizado com sucesso! Faça login para continuar.");
-                window.location.href = "login.html"; 
+            .then(async (credenciais) => {
+                const usuario = credenciais.user;
+                
+                await setDoc(doc(db, "usuarios", usuario.uid), {
+                    nome: nome,
+                    email: email,
+                    cpf: cpf,
+                    plano: "Pendente", 
+                    data_cadastro: new Date().toISOString()
+                });
+
+                window.location.href = "planos.html"; 
             })
             .catch((erro) => {
                 alert("Erro no cadastro: " + erro.message);
@@ -71,9 +82,14 @@ if (btnGoogle) {
     const providerGoogle = new GoogleAuthProvider();
     btnGoogle.addEventListener('click', () => {
         signInWithPopup(auth, providerGoogle)
-            .then((resultado) => {
-                
-                localStorage.setItem("cofre_furado_nome_usuario", resultado.user.displayName);
+            .then(async (resultado) => {
+                const usuario = resultado.user;
+
+                await setDoc(doc(db, "usuarios", usuario.uid), {
+                    nome: usuario.displayName,
+                    email: usuario.email
+                }, { merge: true });
+
                 window.location.href = "dashboard.html"; 
             })
             .catch((erro) => {
