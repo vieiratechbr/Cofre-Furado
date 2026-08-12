@@ -1,56 +1,54 @@
-<!DOCTYPE html> 
-<html lang="pt-BR"> 
-<head>     
-    <meta charset="UTF-8">     
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">     
-    <title>Cofre Furado</title>     
-    <link rel="icon" type="image/png" href="../img/logo.png">     
-    <link rel="stylesheet" href="../style/cadastro.css">     
-    <link rel="preconnect" href="https://fonts.googleapis.com">     
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>     
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
-</head> 
-<body>    
-    <header class="header-principal">     
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cofre Furado</title>
+    <link rel="icon" type="image/png" href="../img/logo.png">
+    <link rel="stylesheet" href="../style/cadastro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header-principal">
         <a href="../index.html" class="brand-header" style="text-decoration: none;">
             <img src="../img/logo.png" alt="Logo Cofre Furado" class="logo-img">
             <h2>Cofre Furado</h2>
-        </a>     
-        <nav class="menu">       
-            <a href="#" class="btn-menu">Suporte</a>                
-        </nav>          
+        </a>
+        <nav class="menu">
+            <a href="#" class="btn-menu">Suporte</a>
+        </nav>
     </header>
-
     <main class="cadastro-container">
-    <div class="caixa">
-        <h2>Cadastre-se</h2>
-        <form action="processar_cadastro.php" method="POST" id="form-cadastro" novalidate>
-    
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
-            <span class="erro-msg" id="erro-nome"></span>
-    
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <span class="erro-msg" id="erro-email"></span>
-    
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" required>
-            <span class="erro-msg" id="erro-senha"></span>
-    
-            <label for="repita-senha">Repita a Senha:</label>
-            <input type="password" id="repita-senha" name="repita_senha" required>
-            <span class="erro-msg" id="erro-repita-senha"></span>
-    
-            <button type="submit">Cadastrar</button>
-
-            <p class="login-link">
-                Já tem conta? <a href="login.html">Faça login</a>
-            </p>
-        </form>
-    </div>
+        <div class="caixa">
+            <h2>Cadastre-se</h2>
+            <form id="form-cadastro" novalidate>
+                
+                <label for="nome-cadastro">Nome:</label>
+                <input type="text" id="nome-cadastro" name="nome" required>
+                <span class="erro-msg" id="erro-nome-cadastro"></span>
+                
+                <label for="email-cadastro">Email:</label>
+                <input type="email" id="email-cadastro" name="email" required>
+                <span class="erro-msg" id="erro-email-cadastro"></span>
+                
+                <label for="senha-cadastro">Senha:</label>
+                <input type="password" id="senha-cadastro" name="senha" required>
+                <span class="erro-msg" id="erro-senha-cadastro"></span>
+        
+                <label for="repita-senha-cadastro">Repita a Senha:</label>
+                <input type="password" id="repita-senha-cadastro" name="repita_senha" required>
+                <span class="erro-msg" id="erro-repita-senha-cadastro"></span>
+                
+                <button type="submit">Cadastrar</button>
+                <p class="login-link">
+                    Já tem conta? <a href="login.html">Faça login</a>
+                </p>
+            </form>
+        </div>
     </main>
-    <script src="../js/script.js"></script>
+    
     <script type="module" src="../js/app.js"></script>
-</body> 
+</body>
 </html>
