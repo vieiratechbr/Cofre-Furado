@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-import { getFirestore, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+import { getFirestore, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-lite.js";
 import { firebaseConfig } from "./firebase-keys.js";
 
 const app = initializeApp(firebaseConfig);
@@ -17,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
             onAuthStateChanged(auth, async (usuarioLogado) => {
                 if (usuarioLogado) {
                     try {
+                        
                         const usuarioRef = doc(db, "usuarios", usuarioLogado.uid);
                         await updateDoc(usuarioRef, {
                             plano: planoEscolhido

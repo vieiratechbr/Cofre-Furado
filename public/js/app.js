@@ -7,7 +7,7 @@ import {
     signInWithPopup
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-lite.js";
 
 import { firebaseConfig } from "./firebase-keys.js";
 import { validarFormCadastro, validarFormLogin, aplicarMascaraCPF, configurarToggleSenha } from "./script.js";
@@ -41,20 +41,25 @@ if (formCadastro) {
             .then(async (credenciais) => {
                 const usuario = credenciais.user;
                 
-                await setDoc(doc(db, "usuarios", usuario.uid), {
-                    nome: nome,
-                    email: email,
-                    cpf: cpf,
-                    plano: "Pendente", 
-                    data_cadastro: new Date().toISOString()
-                });
+                try {
+                    
+                    await setDoc(doc(db, "usuarios", usuario.uid), {
+                        nome: nome,
+                        email: email,
+                        cpf: cpf,
+                        plano: "Pendente",
+                        data_cadastro: new Date().toISOString()
+                    });
 
-                window.location.href = "planos.html"; 
-            })
-            .catch((erro) => {
-                alert("Erro no cadastro: " + erro.message);
-            });
-    });
+                    localStorage.setItem("cofre_furado_nome_usuario", nome);
+
+                    window.location.href = "planos.html"; 
+
+                } catch (erroFirestore) {
+                    console.error("Erro no Firestore Lite:", erroFirestore);
+                    alert("A conta foi criada, mas ocorreu um erro de conexão com o banco de dados. Tente fazer login.");
+                    window.location.href = "login.html";
+                }
 }
 
 const formLogin = document.getElementById('form-login');
@@ -85,10 +90,16 @@ if (btnGoogle) {
             .then(async (resultado) => {
                 const usuario = resultado.user;
 
-                await setDoc(doc(db, "usuarios", usuario.uid), {
-                    nome: usuario.displayName,
-                    email: usuario.email
-                }, { merge: true });
+                try {
+                    await setDoc(doc(db, "usuarios", usuario.uid), {
+                        nome: usuario.displayName,
+                        email: usuario.email
+                    }, { merge: true });
+                    
+                    localStorage.setItem("cofre_furado_nome_usuario", usuario.displayName);
+                } catch(e) {
+                    console.warn("Erro não crítico ao salvar dados do Google", e);
+                }
 
                 window.location.href = "dashboard.html"; 
             })
