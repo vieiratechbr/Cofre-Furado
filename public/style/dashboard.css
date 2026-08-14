@@ -367,6 +367,31 @@ td {
     box-shadow: none;
 }
 
+.badge-plano {
+    font-size: 14px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-left: 15px;
+    vertical-align: middle;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.plano-Furado { background-color: #333333; color: #ffffff; }
+.plano-Plástico { background-color: #08d884; color: #121212; }
+.plano-Ouro { background-color: #ffcc00; color: #121212; }
+
+.menu-premium {
+    position: relative;
+}
+.menu-premium::after {
+    content: '👑';
+    position: absolute;
+    right: 15px;
+    font-size: 14px;
+}
+
 @media (max-width: 768px) {
     body {
         flex-direction: column;

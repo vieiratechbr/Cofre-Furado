@@ -23,6 +23,7 @@
             <a href="transacoes.html">Transações</a>
             <a href="metas.html">Metas</a>
             <a href="configuracoes.html">Configurações</a>
+            <a href="#" id="menu-cartoes" class="menu-premium">Cartões</a>
         </nav>
         <button id="btn-sair" class="btn-sair">Sair da Conta</button>
     </aside>
@@ -73,7 +74,6 @@
                 </div>
             </section>
 
-            <!-- Gráfico de Despesas -->
             <section class="grafico-despesas">
                 <h2>Onde seu dinheiro vai?</h2>
                 <div class="canvas-container">
@@ -101,15 +101,16 @@
 
                 <label for="cat-transacao">Categoria:</label>
                     <select id="cat-transacao" name="categoria" required>
+                        <option value="nova_categoria" style="color: #08d884;">➕ Nova Categoria (Premium)</option>
                         <option value="Alimentação">🍔 Alimentação</option>
                         <option value="Transporte">🚗 Transporte / Carro</option>
                         <option value="Moradia">🏠 Moradia</option>
-                        <option value="Lazer">🎮 Lazer</option>
+                        <option value="Lazer">🎉 Lazer</option>
                         <option value="Saúde">💊 Saúde</option>
                         <option value="Educação">📚 Educação</option>
                         <option value="Compras">🛍️ Compras / Roupas</option>
                         <option value="Salário">💰 Salário / Renda</option>
-                        <option value="Outros">📌 Outros</option>
+                        <option value="Outros">🔄 Outros</option>
                     </select>
 
                 <label for="valor-transacao">Valor (R$):</label>

@@ -60,6 +60,11 @@ if (formCadastro) {
                     alert("A conta foi criada, mas ocorreu um erro de conexão com o banco de dados. Tente fazer login.");
                     window.location.href = "login.html";
                 }
+            })
+            .catch((erro) => {
+                alert("Erro no cadastro: " + erro.message);
+            });
+    });
 }
 
 const formLogin = document.getElementById('form-login');
