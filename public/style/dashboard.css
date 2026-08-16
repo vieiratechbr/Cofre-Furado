@@ -237,6 +237,89 @@ td {
     aspect-ratio: 1; 
 }
 
+.metas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.meta-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.meta-card:hover {
+    transform: translateY(-5px);
+}
+
+.meta-card h3 {
+    font-size: 20px;
+    color: #fdfdfd;
+    margin-bottom: 5px;
+}
+
+.meta-valores {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #A0A0A0;
+}
+
+.meta-valores span {
+    font-weight: 600;
+    color: #E0E0E0;
+}
+
+.progress-bg {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #08d884;
+    border-radius: 10px;
+    transition: width 0.8s ease-in-out;
+}
+
+.progress-text {
+    text-align: right;
+    font-size: 13px;
+    color: #08d884;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.btn-excluir-meta {
+    background: transparent;
+    border: 1px solid rgba(255, 77, 77, 0.4);
+    color: #ff4d4d;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s;
+    width: 100%;
+    font-family: 'Jost', sans-serif;
+}
+
+.btn-excluir-meta:hover {
+    background: rgba(255, 77, 77, 0.15);
+    border-color: #ff4d4d;
+}
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -419,12 +502,10 @@ td {
     font-size: 14px;
 }
 
-/* --- ESTILO DO BOTÃO DE ARQUIVO (ANEXO) --- */
 .modal-caixa input[type="file"] {
     padding: 8px 12px; 
 }
 
-/* Customizando o botão "Escolher arquivo" nativo */
 .modal-caixa input[type="file"]::file-selector-button {
     background-color: #1E1E1E;
     color: #E0E0E0;
@@ -439,20 +520,125 @@ td {
     transition: all 0.3s ease;
 }
 
-/* Efeito ao passar o mouse no botão "Escolher arquivo" */
 .modal-caixa input[type="file"]::file-selector-button:hover {
     background-color: #333333;
     color: #ffffff;
     border-color: #08d884;
 }
 
-/* Ajuste visual para quando o recurso estiver bloqueado (Planos Furado/Plástico) */
 .input-premium-bloqueado::file-selector-button {
     cursor: not-allowed !important;
     background-color: rgba(255, 204, 0, 0.1) !important;
     border-color: #ffcc00 !important;
     color: #ffcc00 !important;
     opacity: 0.8;
+}
+
+.custom-dialog-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    animation: fadeInDialog 0.3s forwards;
+}
+
+@keyframes fadeInDialog {
+    to { opacity: 1; }
+}
+
+.custom-dialog-box {
+    background: #1E1E1E;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    transform: scale(0.9);
+    animation: popDialog 0.3s forwards;
+}
+
+@keyframes popDialog {
+    to { transform: scale(1); }
+}
+
+.custom-dialog-message {
+    font-size: 18px;
+    color: #E0E0E0;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+.custom-dialog-input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.custom-dialog-input:focus {
+    outline: none;
+    border-color: #08d884;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.custom-dialog-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn-dialog {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+    border: none;
+    transition: 0.3s;
+    flex: 1;
+}
+
+.btn-dialog-cancel {
+    background: transparent;
+    color: #A0A0A0;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.btn-dialog-cancel:hover {
+    background: rgba(255,255,255,0.1);
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.btn-dialog-confirm {
+    background: #08d884;
+    color: #121212;
+}
+
+.btn-dialog-confirm:hover {
+    background: #0bd182;
+    box-shadow: 0 4px 15px rgba(8, 216, 132, 0.4);
+}
+
+.btn-dialog-danger {
+    background: transparent;
+    color: #ff4d4d;
+    border: 1px solid #ff4d4d;
+}
+
+.btn-dialog-danger:hover {
+    background: rgba(255, 77, 77, 0.1);
 }
 
 @media (max-width: 768px) {

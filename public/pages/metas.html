@@ -29,15 +29,37 @@
     <main class="main-content">
         <header class="topbar">
             <div class="boas-vindas">
-                <h1>Suas Metas 🎯</h1>
+                <h1 id="saudacao-usuario">Suas Metas 🎯</h1>
                 <p>Acompanhe seus objetivos financeiros.</p>
             </div>
+            <button id="btn-nova-meta" class="btn-primario">+ Nova Meta</button>
         </header>
-
-        <section class="tabela-transacoes box-vazia">
-            <h2 class="titulo-destaque">Em breve!</h2>
-            <p class="texto-cinza">Estamos construindo o sistema de metas para você poupar ainda mais.</p>
+        
+        <section id="metas-container" class="metas-grid">
         </section>
     </main>
+
+    <div id="modal-meta" class="modal-overlay oculto">
+        <div class="modal-caixa">
+            <div class="modal-header">
+                <h2>Criar Objetivo</h2>
+                <button id="btn-fechar-modal-meta" class="btn-fechar">&times;</button>
+            </div>
+            <form id="form-meta" novalidate>
+                <label for="nome-meta">Nome do Objetivo:</label>
+                <input type="text" id="nome-meta" placeholder="Ex: Viagem, Carro Novo, Reserva..." required>
+
+                <label for="valor-alvo-meta">Valor Alvo (R$):</label>
+                <input type="number" id="valor-alvo-meta" step="0.01" placeholder="Ex: 5000.00" required>
+
+                <label for="valor-atual-meta">Já tenho guardado (R$):</label>
+                <input type="number" id="valor-atual-meta" step="0.01" placeholder="Ex: 500.00" value="0">
+
+                <button type="submit" class="btn-primario btn-salvar">Salvar Meta</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="../js/dashboard.js"></script>
 </body>
 </html>
