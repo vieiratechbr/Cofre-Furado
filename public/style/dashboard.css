@@ -11,6 +11,32 @@ body {
     display: flex;
     height: 100vh;
     overflow: hidden;
+    animation: fadeIn 0.4s ease-in-out;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.input-premium-bloqueado {
+    cursor: not-allowed;
+    background: rgba(255, 204, 0, 0.05) !important;
+    border: 1px dashed #ffcc00 !important;
+    color: #A0A0A0 !important;
+}
+
+.premium-lock {
+    font-size: 13px;
+    color: #ffcc00;
+    margin-left: 5px;
+    font-weight: 600;
 }
 
 .sidebar {
@@ -385,11 +411,48 @@ td {
 .menu-premium {
     position: relative;
 }
+
 .menu-premium::after {
     content: '👑';
     position: absolute;
     right: 15px;
     font-size: 14px;
+}
+
+/* --- ESTILO DO BOTÃO DE ARQUIVO (ANEXO) --- */
+.modal-caixa input[type="file"] {
+    padding: 8px 12px; 
+}
+
+/* Customizando o botão "Escolher arquivo" nativo */
+.modal-caixa input[type="file"]::file-selector-button {
+    background-color: #1E1E1E;
+    color: #E0E0E0;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-right: 15px;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Efeito ao passar o mouse no botão "Escolher arquivo" */
+.modal-caixa input[type="file"]::file-selector-button:hover {
+    background-color: #333333;
+    color: #ffffff;
+    border-color: #08d884;
+}
+
+/* Ajuste visual para quando o recurso estiver bloqueado (Planos Furado/Plástico) */
+.input-premium-bloqueado::file-selector-button {
+    cursor: not-allowed !important;
+    background-color: rgba(255, 204, 0, 0.1) !important;
+    border-color: #ffcc00 !important;
+    color: #ffcc00 !important;
+    opacity: 0.8;
 }
 
 @media (max-width: 768px) {

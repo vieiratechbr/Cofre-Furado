@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metas - Cofre Furado</title>
+    <title>Cartões - Cofre Furado</title>
     <link rel="icon" type="image/png" href="../img/logo.png">
     <link rel="stylesheet" href="../style/dashboard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,8 +19,8 @@
         <nav class="nav-links">
             <a href="dashboard.html">Visão Geral</a>
             <a href="transacoes.html">Transações</a>
-            <a href="metas.html" class="ativo">Metas</a>
-            <a href="cartoes.html" id="menu-cartoes" class="menu-premium">Cartões</a>
+            <a href="metas.html">Metas</a>
+            <a href="cartoes.html" id="menu-cartoes" class="ativo menu-premium">Cartões</a>
             <a href="configuracoes.html">Configurações</a>
         </nav>
         <button id="btn-sair" class="btn-sair">Sair da Conta</button>
@@ -29,15 +29,18 @@
     <main class="main-content">
         <header class="topbar">
             <div class="boas-vindas">
-                <h1>Suas Metas 🎯</h1>
-                <p>Acompanhe seus objetivos financeiros.</p>
+                <h1>Gerenciador de Cartões</h1>
+                <p>Controle suas faturas, limites e datas de vencimento.</p>
             </div>
+            <button id="btn-adicionar-cartao" class="btn-primario">+ Novo Cartão</button>
         </header>
 
         <section class="tabela-transacoes box-vazia">
-            <h2 class="titulo-destaque">Em breve!</h2>
-            <p class="texto-cinza">Estamos construindo o sistema de metas para você poupar ainda mais.</p>
+            <h2 class="titulo-destaque" style="color: #ffcc00;">Área Ouro 👑</h2>
+            <p class="texto-cinza">Seus cartões de crédito e limites aparecerão aqui em breve!</p>
         </section>
     </main>
+
+    <script type="module" src="../js/dashboard.js"></script>
 </body>
 </html>

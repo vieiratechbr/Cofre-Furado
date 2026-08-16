@@ -9,12 +9,11 @@ const db = getFirestore(app);
 
 document.addEventListener("DOMContentLoaded", () => {
     
-    let planoUsuario = "Furado"; 
+    let planoUsuario = "Furado";
 
     onAuthStateChanged(auth, async (usuarioLogado) => {
         if (usuarioLogado) {
             try {
-                
                 const usuarioRef = doc(db, "usuarios", usuarioLogado.uid);
                 const usuarioDoc = await getDoc(usuarioRef);
                 
@@ -25,8 +24,22 @@ document.addEventListener("DOMContentLoaded", () => {
                     const saudacaoEl = document.getElementById("saudacao-usuario");
                     if (saudacaoEl) {
                         const primeiroNome = dados.nome.split(" ")[0];
-                        let iconeOuro = planoUsuario === "Ouro" ? "👑" : "";
+                        let iconeOuro = planoUsuario === "Ouro" ? " 👑" : "";
                         saudacaoEl.innerHTML = `Olá, ${primeiroNome}! <span class="badge-plano plano-${planoUsuario}">${planoUsuario} ${iconeOuro}</span>`;
+                    }
+
+                    const inputAnexo = document.getElementById("anexo-transacao");
+                    if (inputAnexo) {
+                        if (planoUsuario === "Ouro") {
+                            inputAnexo.classList.remove("input-premium-bloqueado");
+                        } else {
+                            inputAnexo.addEventListener("click", (e) => {
+                                e.preventDefault();
+                                alert("👑 Recurso Premium! Anexar recibos é uma funcionalidade exclusiva do plano Cofre de Ouro.");
+                                document.body.classList.add("fade-out");
+                                setTimeout(() => window.location.href = "planos.html", 300);
+                            });
+                        }
                     }
                 }
             } catch (erro) {
@@ -40,12 +53,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const menuCartoes = document.getElementById("menu-cartoes");
     if (menuCartoes) {
         menuCartoes.addEventListener("click", (evento) => {
-            evento.preventDefault();
             if (planoUsuario !== "Ouro") {
+                evento.preventDefault(); 
                 alert("🔒 Recurso Premium! O Controle de Cartões de Crédito é exclusivo do Plano Ouro. Faça o upgrade para acessar.");
-                window.location.href = "planos.html";
-            } else {
-                alert("Bem-vindo aos seus Cartões de Crédito!");
+                document.body.classList.add("fade-out");
+                setTimeout(() => window.location.href = "planos.html", 300);
             }
         });
     }
@@ -57,14 +69,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (planoUsuario === "Furado") {
                     alert("🔒 Recurso Bloqueado! Criar categorias personalizadas exige o Plano Plástico ou Ouro.");
                     selectCategoria.value = "Outros"; 
-                    window.location.href = "planos.html";
+                    document.body.classList.add("fade-out");
+                    setTimeout(() => window.location.href = "planos.html", 300);
                 } else {
                     const novaCat = prompt("Digite o nome da sua nova categoria personalizada:");
                     if (novaCat) {
-                       
                         const option = document.createElement("option");
                         option.value = novaCat;
-                        option.text = `⭐ ${novaCat}`;
+                        option.text = `📌 ${novaCat}`;
                         selectCategoria.add(option);
                         selectCategoria.value = novaCat;
                     } else {
@@ -80,7 +92,8 @@ document.addEventListener("DOMContentLoaded", () => {
         btnSair.addEventListener("click", () => {
             signOut(auth).then(() => {
                 localStorage.clear();
-                window.location.href = "../index.html";
+                document.body.classList.add("fade-out");
+                setTimeout(() => window.location.href = "../index.html", 300);
             });
         });
     }
@@ -105,6 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const saldoAtualEl = document.getElementById("saldo-atual");
     const receitasMesEl = document.getElementById("receitas-mes");
     const despesasMesEl = document.getElementById("despesas-mes");
+
     let transacoes = JSON.parse(localStorage.getItem("transacoes_cofre_furado")) || [];
     let meuGrafico = null;
 
@@ -140,6 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const canvas = document.getElementById('graficoCategorias');
         if (!canvas) return;
+
         const categorias = {};
         transacoes.filter(t => t.tipo === 'despesa').forEach(t => {
             const cat = t.categoria || "Outros";
@@ -147,6 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         if (meuGrafico) meuGrafico.destroy();
+
         meuGrafico = new Chart(canvas.getContext('2d'), {
             type: 'doughnut',
             data: {
@@ -185,4 +201,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     setTimeout(atualizarUI, 500); 
+
+    const linksMenu = document.querySelectorAll('.nav-links a');
+    linksMenu.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            
+            if (!href || href === '#' || window.location.pathname.includes(href)) return;
+            if (link.id === 'menu-cartoes' && planoUsuario !== 'Ouro') return;
+
+            e.preventDefault(); 
+            
+            document.body.classList.add('fade-out');
+            
+            setTimeout(() => {
+                window.location.href = href;
+            }, 300);
+        });
+    });
 });

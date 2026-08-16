@@ -12,7 +12,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-   
     <aside class="sidebar">
         <div class="brand">
             <img src="../img/logo.png" alt="Logo Cofre Furado">
@@ -22,8 +21,8 @@
             <a href="dashboard.html" class="ativo">Visão Geral</a>
             <a href="transacoes.html">Transações</a>
             <a href="metas.html">Metas</a>
+            <a href="cartoes.html" id="menu-cartoes" class="menu-premium">Cartões</a>
             <a href="configuracoes.html">Configurações</a>
-            <a href="#" id="menu-cartoes" class="menu-premium">Cartões</a>
         </nav>
         <button id="btn-sair" class="btn-sair">Sair da Conta</button>
     </aside>
@@ -31,7 +30,7 @@
     <main class="main-content">
         <header class="topbar">
             <div class="boas-vindas">
-                <h1 id="saudacao-usuario">Olá, Carregando... 👋</h1>
+                <h1 id="saudacao-usuario">Olá, Carregando... ⏳</h1>
                 <p>Aqui está o resumo das suas finanças.</p>
             </div>
             <button id="btn-abrir-modal" class="btn-primario">+ Nova Transação</button>
@@ -53,7 +52,6 @@
         </section>
 
         <div class="dashboard-grid">
-    
             <section class="tabela-transacoes">
                 <h2>Últimas Transações</h2>
                 <div class="table-responsive">
@@ -68,7 +66,6 @@
                             </tr>
                         </thead>
                         <tbody id="tbody-transacoes">
-                      
                         </tbody>
                     </table>
                 </div>
@@ -100,24 +97,27 @@
                 <input type="text" id="desc-transacao" name="descricao" placeholder="Ex: Peças para o carro, Lanche..." required>
 
                 <label for="cat-transacao">Categoria:</label>
-                    <select id="cat-transacao" name="categoria" required>
-                        <option value="nova_categoria" style="color: #08d884;">➕ Nova Categoria (Premium)</option>
-                        <option value="Alimentação">🍔 Alimentação</option>
-                        <option value="Transporte">🚗 Transporte / Carro</option>
-                        <option value="Moradia">🏠 Moradia</option>
-                        <option value="Lazer">🎉 Lazer</option>
-                        <option value="Saúde">💊 Saúde</option>
-                        <option value="Educação">📚 Educação</option>
-                        <option value="Compras">🛍️ Compras / Roupas</option>
-                        <option value="Salário">💰 Salário / Renda</option>
-                        <option value="Outros">🔄 Outros</option>
-                    </select>
+                <select id="cat-transacao" name="categoria" required>
+                    <option value="nova_categoria" style="color: #08d884;">➕ Nova Categoria (Premium)</option>
+                    <option value="Alimentação">🍔 Alimentação</option>
+                    <option value="Transporte">🚗 Transporte / Carro</option>
+                    <option value="Moradia">🏠 Moradia</option>
+                    <option value="Lazer">🎉 Lazer</option>
+                    <option value="Saúde">💊 Saúde</option>
+                    <option value="Educação">📚 Educação</option>
+                    <option value="Compras">🛍️ Compras / Roupas</option>
+                    <option value="Salário">💰 Salário / Renda</option>
+                    <option value="Outros">📌 Outros</option>
+                </select>
 
                 <label for="valor-transacao">Valor (R$):</label>
                 <input type="number" id="valor-transacao" name="valor" step="0.01" placeholder="0.00" required>
 
                 <label for="data-transacao">Data:</label>
                 <input type="date" id="data-transacao" name="data" required>
+
+                <label for="anexo-transacao">Anexar Recibo / Nota Fiscal <span class="premium-lock">👑 Ouro</span></label>
+                <input type="file" id="anexo-transacao" name="anexo" accept="image/png, image/jpeg, application/pdf" class="input-premium-bloqueado">
 
                 <button type="submit" class="btn-primario btn-salvar">Salvar Transação</button>
             </form>
